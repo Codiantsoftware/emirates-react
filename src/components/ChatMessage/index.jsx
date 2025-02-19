@@ -131,6 +131,24 @@ const Chat = () => {
                                         992: { slidesPerView: 2.2, spaceBetween: 12 }
                                     }}
                                     navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}>
+                                      <SwiperSlide>
+                                        <div className="swiper-slide-item">
+                                            <p className="swiper-slide-item-title text-truncate">Setting Up Outlook: A Step-by-Step Guide</p>
+                                            <p className="swiper-slide-item-content">Learn how to configure your email, calendar, and contacts in Outlook with ease.</p>
+                                            <a className="btn d-inline-flex align-items-center btn-outline-secondary" href="#!">
+                                                Learn more <em className="icon-arrow-right-outline ms-2"></em>
+                                            </a>
+                                        </div>
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <div className="swiper-slide-item">
+                                            <p className="swiper-slide-item-title text-truncate">Troubleshooting Outlook Setup Issues</p>
+                                            <p className="swiper-slide-item-content">Common setup problems and quick fixes to get you back on track.</p>
+                                            <a className="btn d-inline-flex align-items-center btn-outline-secondary" href="#!">
+                                                Learn more <em className="icon-arrow-right-outline ms-2"></em>
+                                            </a>
+                                        </div>
+                                    </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="swiper-slide-item">
                                             <p className="swiper-slide-item-title text-truncate">Setting Up Outlook: A Step-by-Step Guide</p>
@@ -159,7 +177,7 @@ const Chat = () => {
                             <em className="icon-arrow-right-bottom"></em>
                         </a>
                         <input type="text" placeholder="Ask me anything" value={message} onChange={(e) => setMessage(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && handleSend()} />
-                        <button type="button" className="chat_footer_send" onClick={handleSend}>
+                        <button type="button" className="chat_footer_send d-flex align-items-center justify-content-center p-0" onClick={handleSend}>
                             <em className="icon-arrow-right-top"></em>
                         </button>
                     </div>

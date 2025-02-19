@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSidebar } from '../../SidebarContext';
 
 /**
  * Header component that displays the top navigation bar.
@@ -9,17 +8,14 @@ import { useSidebar } from '../../SidebarContext';
  * @component
  * @returns {JSX.Element} The rendered Header component.
  */
-const Header = () => {
-    // Destructuring sidebar-related functions and state from the context
-    const { isSidebarOpen, closeSidebar, toggleSidebar } = useSidebar();
-
+const Header = ({isOpen, onButtonClick}) => { 
     return (
         <>
             {/* Top header section with toggle button and welcome message */}
             <header className="topHeader d-flex align-items-center justify-content-between">
                 <div className="topHeader_left">
                     {/* Button to toggle the sidebar */}
-                    <button type="button" className="topHeader_left_toggle" onClick={toggleSidebar}>
+                    <button type="button" className="topHeader_left_toggle" onClick={onButtonClick}>
                         <em className="icon-menu"></em>
                     </button>
                     {/* Welcome message */}
@@ -34,7 +30,7 @@ const Header = () => {
             </header>
 
             {/* Overlay to close the sidebar when clicked outside */}
-            <div className={`overlay ${isSidebarOpen ? "show" : ""}`} onClick={closeSidebar}></div>
+            <div className={`overlay ${isOpen ? "show" : ""}`} onClick={onButtonClick}></div>
         </>
     );
 };

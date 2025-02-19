@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import Header from './components/Header';
 import Sidebar from './components/SideBar';
 import Chat from './components/ChatMessage';
 import "../public/assets/scss/style.scss";
-import { SidebarProvider } from './SidebarContext';
 
 /**
  * Root component of the application.
@@ -14,13 +14,17 @@ import { SidebarProvider } from './SidebarContext';
  * @returns {JSX.Element} The rendered App component.
  */
 function App() {
+  // Sidebar toggle
+  const [isOpen, setIsOpen] = useState(false);
+  const openSidebar = () => {
+    setIsOpen((prev) => !prev);
+  };
+  
   return (
-    <>
-      <SidebarProvider>
-        <Sidebar />
-        <Header />
-        <Chat /> 
-      </SidebarProvider>
+    <>      
+        <Sidebar isOpen={isOpen} onButtonClick={openSidebar}/>
+        <Header isOpen={isOpen} onButtonClick={openSidebar}/>
+        <Chat />       
     </>
   );
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSidebar } from '../../SidebarContext';
 
 /**
  * Sidebar component that provides navigation and action buttons.
@@ -9,14 +8,12 @@ import { useSidebar } from '../../SidebarContext';
  * @component
  * @returns {JSX.Element} The rendered Sidebar component.
  */
-const Sidebar = () => {
-    // Destructuring sidebar state and function from the context
-    const { isSidebarOpen, closeSidebar } = useSidebar();
+const Sidebar = ({isOpen, onButtonClick}) => {  
 
     return (
         <>
             {/* Sidebar container, dynamically adding 'show' class when open */}
-            <div className={`sidebar ${isSidebarOpen ? "show" : ""}`}>
+            <div className={`sidebar ${isOpen ? "show" : ""}`}>
                 
                 {/* Sidebar header with logo and close button */}
                 <div className="d-flex align-items-center justify-content-between">
@@ -24,7 +21,7 @@ const Sidebar = () => {
                         <img src="/assets/images/logo.png" alt="logo" />
                     </a>
                     {/* Button to close the sidebar */}
-                    <button type="button" className="sidebar_toggle" onClick={closeSidebar}>
+                    <button type="button" className="sidebar_toggle p-0" onClick={onButtonClick}>
                         <em className="icon-cross"></em>
                     </button>
                 </div>
